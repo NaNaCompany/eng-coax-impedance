@@ -1,0 +1,55 @@
+{
+  "id": "E148",
+  "value": 55.41341253020676,
+  "method": "Independent Python Decimal evaluation at 90 decimal digits; mathematical constants supplied to at least 85 digits. Expected numbers rounded once to IEEE-754 binary64. No JS imports.",
+  "cases": [
+    {
+      "name": "air dielectric with radius ratio two",
+      "values": {
+        "a": 0.001,
+        "b": 0.002,
+        "er": 1,
+        "mur": 1
+      },
+      "expected": 41.560059397655074
+    },
+    {
+      "name": "quadrupled permittivity halves impedance",
+      "values": {
+        "er": 9
+      },
+      "expected": 27.70670626510338
+    },
+    {
+      "name": "quadrupled permeability doubles impedance",
+      "values": {
+        "mur": 4
+      },
+      "expected": 110.82682506041353
+    },
+    {
+      "name": "equal radii invalid",
+      "values": {
+        "b": 0.0005
+      },
+      "throws": true
+    },
+    {
+      "name": "outer radius inside inner conductor invalid",
+      "values": {
+        "b": 0.0001
+      },
+      "throws": true
+    },
+    {
+      "name": "huge radius ratio handled with logarithms",
+      "values": {
+        "a": 1e-200,
+        "b": 1e+200,
+        "er": 1,
+        "mur": 1
+      },
+      "expected": 55223.811575303174
+    }
+  ]
+}
